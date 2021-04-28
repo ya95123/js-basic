@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>e.target 目前點擊位置</title>
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        box-sizing: border-box;
+        font-family: 黑體-繁, Apple LiGothic Medium, PingFang, 微軟正黑體, Microsoft JhengHei, WenQuanYi Zen Hei, helvetica, Arial, sans-serif;
+    }
+
+    h3 {
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h3>1. e.target</h3>
+  <div style="padding: 0.5rem 2rem;">
+    <span id="target">點看看我</span>
+  </div>
+
+  <script>
+    const target = document.getElementById("target")
+
+    target.addEventListener("click",(e)=>{
+      console.log(e)
+      console.log(e.target)
+      console.log(e.target.localName)
+    },false)
+  </script>
+</body>
+</html>
