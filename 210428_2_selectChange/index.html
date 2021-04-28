@@ -20,27 +20,70 @@
     }
 
     #country {
-      margin: 0 2rem;
+      margin: 0 0.65rem 0 2rem;
       font-size: 1.25rem;
     }
   </style>
 </head>
 <body>
   <h3>select 表單變動時的觸發</h3>
-  <select id="country">
+  <select id="country" style="border-radius: 10px;">
     <option value="請選擇">請選擇</option>
     <option value="美國">美國</option>
     <option value="台灣">台灣</option>
     <option value="日本">日本</option>
   </select>
+  <span>的食物：</span>
+  <ul id="food" style="margin: 1rem 0 1rem 3rem;"></ul>
 
   <script>
     const country = document.getElementById("country")
-    console.log(country.value)
+    const food =document.getElementById("food")
+    const data = [
+      {
+        country: "美國",
+        food: "熱狗"
+      },
+      {
+        country: "日本",
+        food: "壽司"
+      },      
+      {
+        country: "美國",
+        food: "漢堡"
+      },      
+      {
+        country: "台灣",
+        food: "小籠包"
+      },      
+      {
+        country: "台灣",
+        food: "珍珠奶茶"
+      },      
+      {
+        country: "日本",
+        food: "拉麵"
+      },
+    ]
 
-    country.addEventListener("change",()=>{
-      console.log(country.value)
-    },false)
+    const countryFood = () => {
+      let selectCountry = country.value
+      let list = ""
+      console.log(selectCountry)
+
+      data.forEach(item =>{
+        // 判斷國家，正確德的把食物加進
+        if(item.country === selectCountry){
+          list += `<li>${item.food}</li>`
+          console.log(item.food)
+        }
+      })
+
+      // 放進 html
+      food.innerHTML = list
+    }
+
+    country.addEventListener("change",countryFood,false)
   </script>
 </body>
 </html>
