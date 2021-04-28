@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>select 表單內容變更時的觸發</title>
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        box-sizing: border-box;
+        font-family: 黑體-繁, Apple LiGothic Medium, PingFang, 微軟正黑體, Microsoft JhengHei, WenQuanYi Zen Hei, helvetica, Arial, sans-serif;
+    }
+
+    h3 {
+      padding: 1rem;
+      font-size: 2rem;
+    }
+
+    #country {
+      margin: 0 2rem;
+      font-size: 1.25rem;
+    }
+  </style>
+</head>
+<body>
+  <h3>select 表單變動時的觸發</h3>
+  <select id="country">
+    <option value="請選擇">請選擇</option>
+    <option value="美國">美國</option>
+    <option value="台灣">台灣</option>
+    <option value="日本">日本</option>
+  </select>
+
+  <script>
+    const country = document.getElementById("country")
+    console.log(country.value)
+
+    country.addEventListener("change",()=>{
+      console.log(country.value)
+    },false)
+  </script>
+</body>
+</html>
